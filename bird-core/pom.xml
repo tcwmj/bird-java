@@ -20,7 +20,7 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
-            <version>${spring-data-redis.version}</version>
+            <version>${spring-boot.version}</version>
         </dependency>
         <!--redis组件-->
         <dependency>
