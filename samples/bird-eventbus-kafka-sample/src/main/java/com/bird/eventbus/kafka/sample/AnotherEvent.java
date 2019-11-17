@@ -10,13 +10,13 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class TestEvent extends EventArg {
-    private String name;
+public class AnotherEvent extends EventArg {
+    private String description;
 
-    public TestEvent() {
+    public AnotherEvent() {
     }
 
-    public TestEvent(String name) {
-        this.name = name;
+    public AnotherEvent(String description) {
+        this.description = description;
     }
 }
