@@ -22,7 +22,7 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.listener.AbstractMessageListenerContainer;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
-import org.springframework.kafka.listener.ContainerProperties;
+import org.springframework.kafka.listener.config.ContainerProperties;
 
 import java.util.HashMap;
 
@@ -88,7 +88,7 @@ public class KafkaConfigurer {
         KafkaEventArgListener listener = new KafkaEventArgListener(eventDispatcher);
         ContainerProperties containerProperties = new ContainerProperties(eventDispatcher.getAllTopics());
         containerProperties.setMessageListener(listener);
-        containerProperties.setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
+        containerProperties.setAckMode(AbstractMessageListenerContainer.AckMode.MANUAL_IMMEDIATE);
 
         HashMap<String,Object> properties = new HashMap<>(8);
         properties.put("bootstrap.servers", kafkaProperties.getHost());

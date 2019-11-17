@@ -3,10 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.6.RELEASE</version>
+        <relativePath/>
+    </parent>
+
     <groupId>com.bird</groupId>
     <artifactId>bird-project</artifactId>
-    <packaging>pom</packaging>
     <version>1.0.3-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
 
     <modules>
         <module>bird-core</module>
@@ -29,8 +37,6 @@
 
         <!-- 版本号 -->
         <bird.version>1.0.3-SNAPSHOT</bird.version>
-        <spring.version>5.2.1.RELEASE</spring.version>
-        <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
         <javax.version>3.1.0</javax.version>
         <dubbo.version>2.7.1</dubbo.version>
         <zkclient.version>0.10</zkclient.version>
@@ -42,13 +48,13 @@
         <dozer.version>5.5.1</dozer.version>
         <okhttp.version>3.10.0</okhttp.version>
         <poi.version>3.17</poi.version>
-        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
-        <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
         <lombok.version>1.18.8</lombok.version>
         <commons-lang3.version>3.5</commons-lang3.version>
         <commons-io.version>2.6</commons-io.version>
         <ant.version>1.10.1</ant.version>
         <aspectj.version>1.8.13</aspectj.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
     </properties>
 
     <dependencies>
@@ -56,7 +62,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
         </dependency>
 
         <!--fastjson-->
