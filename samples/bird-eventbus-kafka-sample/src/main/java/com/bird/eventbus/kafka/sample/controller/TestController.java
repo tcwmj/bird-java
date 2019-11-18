@@ -1,7 +1,8 @@
-package com.bird.eventbus.kafka.sample;
+package com.bird.eventbus.kafka.sample.controller;
 
 import com.bird.eventbus.EventBus;
 import com.bird.eventbus.handler.EventHandler;
+import com.bird.eventbus.kafka.sample.model.TestEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,16 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/8/28
  */
 @RestController
-@RequestMapping("/another")
+@RequestMapping("/test")
 @Slf4j
-public class AnotherController {
+public class TestController {
 
     @Autowired
     private EventBus eventBus;
 
     @GetMapping("/send")
     public void sendEvent(String name) {
-        AnotherEvent event = new AnotherEvent(name);
+        TestEvent event = new TestEvent(name);
         eventBus.push(event);
     }
 
@@ -35,7 +36,12 @@ public class AnotherController {
      * @param event
      */
     @EventHandler
-    public void handleEvent(AnotherEvent event) {
-        log.info("接收到{} {}", event.getClass(), event.getDescription());
+    public void handleEvent(TestEvent event) {
+        log.info("{} handleEvent 接收到 {} {}", this.getClass().getSimpleName(), event.getClass().getSimpleName(), event.getName());
+    }
+
+    @EventHandler
+    public void handleEvent2(TestEvent event) {
+        log.info("{} handleEvent2 接收到 {} {}", this.getClass().getSimpleName(), event.getClass().getSimpleName(), event.getName());
     }
 }
